@@ -1,13 +1,9 @@
 ﻿# -*-coding:utf-8-*-
 
-from socket import timeout
 from time import sleep
-import time
-from pywinauto.application import Application
 from pywinauto import application
 
 APP_Path = r'D:\Project\爱康DU PLUS 002\IEAvalon\IEGUI\AvalonClient\AvalonGUI.exe'
-
 app = application.Application(backend='uia').start(APP_Path, timeout=10)  # 打开测试程序
 
 
