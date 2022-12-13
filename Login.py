@@ -3,7 +3,7 @@
 from time import sleep
 from pywinauto import application
 
-APP_Path = r'D:\Project\爱康DU PLUS 002\IEAvalon\IEGUI\AvalonClient\AvalonGUI.exe'
+APP_Path = r'D:\IECrown\IEGUI\CrownClient\CrownGUI.exe'
 app = application.Application(backend='uia').start(APP_Path, timeout=10)  # 打开测试程序
 
 
