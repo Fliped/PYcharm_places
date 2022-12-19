@@ -1,4 +1,5 @@
-﻿from time import sleep
+﻿import time
+from time import sleep
 from pywinauto.application import Application
 from pywinauto import mouse
 import pywinauto
@@ -9,7 +10,7 @@ LLI_mode = 'Static23'
 TM1_mode = 'Static24'
 TM2_mode = 'Static25'
 project_window = "Crown - U3"
-Process_id = 11868
+Process_id = 23040
 recipes_menu = "Recipes"
 
 
@@ -44,7 +45,13 @@ def cap_image(test_window, protect_name_, cap_chamber):
 
 def recipes():
     dlg = app_test_window[project_window]
-    recipes_pos = dlg[recipes_menu].rectangle()
+    time1 = time.time()
+    print("定位开始", time1)
+    # recipes_button = dlg.Menu2.MenuItem2.Recipes
+    recipes_button = dlg[recipes_menu]
+    time2 = time.time()
+    print("定位完成：", time2 - time1)
+    recipes_pos = recipes_button.rectangle()
     print(recipes_pos)
     recipes_pos_mid = recipes_pos.mid_point()
     print(recipes_pos_mid)
@@ -55,8 +62,14 @@ def recipes():
     recipe_dlg.MenuItem1.click_input()
 
 
+#  sleep(2)
+#   dlg.print_control_identifiers()
+
+
 conn_app(Process_id)
 # init_home(app_test_window, project_window, LLI_mode)
 # init_home(app_1, protect_name, TM1_mode)
 # init_home(app_1, protect_name, TM2_mode)
 recipes()
+# dlg3 = app_test_window[project_window]
+# dlg3.print_control_identifiers()
